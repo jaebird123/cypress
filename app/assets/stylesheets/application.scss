@@ -10,9 +10,25 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- */
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+*/
+
+/////////////////// From bootstrap-sass - this needs to come first
+
+@import "bootstrap-sprockets";
+
+
+/////////////////// Import Cypress-specific variables!
+
+@import "bootstrap-variables-cypress";
+
+
+/////////////////// Import 3rd-party styles
+
+@import "bootstrap-custom"; // copied from bootstrap-sass gem, with unneeded parts commented out
+
+
+/////////////////// Import Cypress styles!
+
+@import "navigation";
+@import "utils";
+@import "products";

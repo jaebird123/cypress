@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cypress</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Cypress v3</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><%= image_tag('icon.svg') %> cypress</a>
+          </div>
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a class="navbar-item" href="#">Patient List</a>
+            </li>
+            <li>
+              <a class="navbar-item" href="#">Account</a>
+            </li>
+            <li>
+              <a class="navbar-item" href="#">Help</a>
+            </li>
+            <li>
+              <a class="navbar-item" href="#">About</a>
+            </li>
+            <li>
+              <a class="navbar-item" href="#">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-</body>
+      <%= yield %>
+
+    </div>
+  </body>
 </html>
