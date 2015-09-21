@@ -1,6 +1,6 @@
 tr.clickable-row:hover {
 	cursor: pointer;
-	background-color: #F8F8F8;
+	background-color: $gray-lighter;
 	td:first-child {
 		text-decoration: underline;
 	}
