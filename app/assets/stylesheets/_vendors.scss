@@ -1,0 +1,19 @@
+th {
+  width: 8em;
+}
+
+td {
+	width: 2em;
+}
+
+/* Check and X mark */
+th img, td img {
+	display: inline;
+	height: 1.5em;
+    padding-bottom: 0.5em;
+    margin-left: 0.75em;
+}
+
+td img {
+	margin-left: 1em;
+}
