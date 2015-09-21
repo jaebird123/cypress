@@ -9,45 +9,40 @@
   	<table class="table table-sm">
       <thead>
         <tr>
-          <td></td>
           <th>Vendor</th>
           <th>Passing Products<%= image_tag('checkmark.svg') %></th>
           <th>Failing Products<%= image_tag('errormark.svg') %></th>
-          <th>Incomplete Products</th>
+          <th>Incomplete Products<%= image_tag('incomplete.svg') %></th>
           <td></td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><button class="btn btn-xs btn-primary-outline">+</button></td>
-          <td>Sample Vendor 1</td>
-          <td>1 of 1<%= image_tag('checkmark.svg') %></td>
-          <td>0 of 1</td>
-          <td>0 of 1</td>
-          <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
+        <tr class = 'clickable-row' data-href = "#">
+          <td>Apples</a></td>
+	      <td>1 of 1<%= image_tag('checkmark.svg') %></td>
+	      <td>0 of 1</td>
+	      <td>0 of 1</td>
+	      <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
         </tr>
-        <tr>
-          <td><button class="btn btn-xs btn-primary-outline">+</button></td>
-          <td>Sample Vendor 2</td>
+        <tr class = 'clickable-row' data-href = "#">
+          <td>Bananas</td>
           <td>2 of 4</td>
           <td>1 of 4<%= image_tag('errormark.svg') %></td>
-          <td>1 of 4</td>
+          <td>1 of 4<%= image_tag('incomplete.svg') %></td>
           <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
         </tr>
-        <tr>
-          <td><button class="btn btn-xs btn-primary-outline">+</button></td>
-          <td>Sample Vendor 3</td>
+        <tr class = 'clickable-row' data-href = "#">
+          <td>Chairs</td>
           <td>1 of 2</td>
           <td>1 of 2<%= image_tag('errormark.svg') %></td>
           <td>0 of 2</td>
           <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
         </tr>
-        <tr>
-          <td><button class="btn btn-xs btn-primary-outline">+</button></td>
-          <td>Sample Vendor 4</td>
+        <tr class = 'clickable-row' data-href = "#">
+          <td>Desks</td>
           <td>2 of 7</td>
           <td>3 of 7<%= image_tag('errormark.svg') %></td>
-          <td>2 of 7</td>
+          <td>2 of 7<%= image_tag('incomplete.svg') %></td>
           <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
         </tr>
       </tbody>

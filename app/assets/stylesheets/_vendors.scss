@@ -1,3 +1,11 @@
+tr.clickable-row:hover {
+	cursor: pointer;
+	background-color: #F8F8F8;
+	td:first-child {
+		text-decoration: underline;
+	}
+}
+
 th {
   width: 8em;
 }
