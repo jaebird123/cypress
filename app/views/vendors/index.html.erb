@@ -4,51 +4,71 @@
   </ol>
 
   <button class="btn btn-primary pull-right">View All Patients</button>
+  <button class="btn btn-primary pull-left">+ Add Vendor</button>
 
   <section>
   	<table class="table table-sm">
       <thead>
         <tr>
+          <th>Status</th>
           <th>Vendor</th>
-          <th>Passing Products<%= image_tag('checkmark.svg') %></th>
-          <th>Failing Products<%= image_tag('errormark.svg') %></th>
-          <th>Incomplete Products<%= image_tag('incomplete.svg') %></th>
+          <th>Passing Products</th>
+          <th>Failing Products</th>
+          <th>Incomplete Products</th>
           <td></td>
         </tr>
       </thead>
       <tbody>
         <tr class = 'clickable-row' data-href = "#">
-          <td>Apples</a></td>
-	      <td>1 of 1<%= image_tag('checkmark.svg') %></td>
-	      <td>0 of 1</td>
-	      <td>0 of 1</td>
-	      <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
+          <td><%= image_tag('checkmark.svg') %></td>
+          <td><a href = "#">Apples</a></td>
+  	      <td>1</td>
+  	      <td>0</td>
+  	      <td>0</td>
+  	      <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
         </tr>
         <tr class = 'clickable-row' data-href = "#">
-          <td>Bananas</td>
-          <td>2 of 4</td>
-          <td>1 of 4<%= image_tag('errormark.svg') %></td>
-          <td>1 of 4<%= image_tag('incomplete.svg') %></td>
-          <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
+          <td><%= image_tag('errormark.svg') %></td>
+          <td><a href = "#">Bananas</a></td>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+          <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
         </tr>
         <tr class = 'clickable-row' data-href = "#">
-          <td>Chairs</td>
-          <td>1 of 2</td>
-          <td>1 of 2<%= image_tag('errormark.svg') %></td>
-          <td>0 of 2</td>
-          <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
+          <td><%= image_tag('errormark.svg') %></td>
+          <td><a href = "#">Chairs</a></td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
         </tr>
         <tr class = 'clickable-row' data-href = "#">
-          <td>Desks</td>
-          <td>2 of 7</td>
-          <td>3 of 7<%= image_tag('errormark.svg') %></td>
-          <td>2 of 7<%= image_tag('incomplete.svg') %></td>
-          <td><button class="btn btn-xs btn-primary pull-right">Edit Vendor</button></td>
+          <td><%= image_tag('errormark.svg') %></td>
+          <td><a href = "#">Desks</a></td>
+          <td>2</td>
+          <td>3</td>
+          <td>2</td>
+          <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
+        </tr>
+        <tr class = 'clickable-row' data-href = "#">
+          <td><%= image_tag('checkmark.svg') %></td>
+          <td><a href = "#">Elephants</a></td>
+          <td>3</td>
+          <td>0</td>
+          <td>0</td>
+          <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
+        </tr>
+        <tr class = 'clickable-row' data-href = "#">
+          <td><%= image_tag('errormark.svg') %></td>
+          <td><a href = "#">Fish</a></td>
+          <td>2</td>
+          <td>0</td>
+          <td>1</td>
+          <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
         </tr>
       </tbody>
     </table>
   </section>
-
-  <button class="btn btn-primary pull-left">+ Add Vendor</button>
 
 </div>
