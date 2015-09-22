@@ -1,25 +1,26 @@
-tr.clickable-row:hover {
-	cursor: pointer;
-	background-color: $gray-lighter;
-	td:first-child {
-		text-decoration: underline;
-	}
+section {
+	margin-top: 5em;
 }
 
-th {
-  width: 8em;
+tr:hover {
+	background-color: #EEEBF5;
 }
 
-td {
-	width: 2em;
+th, td {
+  width: 2em;
+  text-align: center;
+}
+
+th:first-child,
+th:nth-child(2),
+td:nth-child(2) {
+	text-align: left;
 }
 
 /* Check and X mark */
 th img, td img {
-	display: inline;
 	height: 1.5em;
     padding-bottom: 0.5em;
-    margin-left: 0.75em;
 }
 
 td img {
