@@ -1,15 +1,4 @@
-#temp {
-	
-}
-
-h1 {
-	margin-top: 1.5em;
-	margin-bottom: 1em;
-}
-
-section {
-	margin-top: 5em;
-}
+/* index.html.erb page */
 
 tr:hover {
 	background-color: #EEEBF5;
@@ -36,8 +25,28 @@ td img {
 	margin-left: 1em;
 }
 
+/* add.html.erb page */
+
+h1 {
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+
+section {
+	margin-top: 5em;
+}
+
+.form-control {
+	display: inline; /* needed for '* required' side note */
+	width: 20em;
+}
+
 .required-field-label {
 	display: inline;
 	margin-left: 1em;
 	color: red;
+}
+
+#POC_labels {
+	display: inline;
 }
