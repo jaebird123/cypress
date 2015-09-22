@@ -1,3 +1,12 @@
+#temp {
+	
+}
+
+h1 {
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+
 section {
 	margin-top: 5em;
 }
@@ -25,4 +34,10 @@ th img, td img {
 
 td img {
 	margin-left: 1em;
+}
+
+.required-field-label {
+	display: inline;
+	margin-left: 1em;
+	color: red;
 }
