@@ -39,12 +39,10 @@ section {
 
 .form-control {
 	display: inline; /* needed for '* required' side note */
-	width: 20em;
+	width: 100%;
 }
 
 .required-field-label {
-	display: inline;
-	margin-left: 1em;
 	color: red;
 }
 
