@@ -48,34 +48,48 @@
 
   	<h1>Point of Contact Information</h1>
 
+    <div id = "poc_labels" class = "form-group">
+      <div class = "col-xs-3">
+        Name
+      </div>
+      <div class = "col-xs-3">
+        Contact Type
+      </div>
+      <div class = "col-xs-3">
+        Email
+      </div>
+      <div class = "col-xs-3">
+        Phone Number
+      </div>
+    </div>
+
   	<div class="form-group poc-group">
-        <!-- <label class="col-xs-2 control-label">POC</label> -->
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "poc[0].name" placeholder = "Name" />
+            <input type = "text" class = "form-control" name = "poc[0].name" placeholder = "John Doe" />
         </div>
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "poc[0].contact_type" placeholder = "Contact Type" />
+            <input type = "text" class = "form-control" name = "poc[0].contact_type" placeholder = "eg. Admin, Sales, etc." />
         </div>
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "poc[0].email" placeholder = "Email" />
+            <input type = "text" class = "form-control" name = "poc[0].email" placeholder = "contact@example.com" />
         </div>
-        <div class="col-xs-3">
-            <input type="text" class="form-control" name="poc[0].phone_number" placeholder="Phone Number" />
+        <div class="col-xs-2">
+            <input type="text" class="form-control" name="poc[0].phone_number" placeholder="1(222)333-4444" />
         </div>
     </div>
 
     <div class="form-group poc-group hide" id = "poc_template">
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "name" placeholder = "Name" />
+            <input type = "text" class = "form-control" name = "name" placeholder = "John Doe" />
         </div>
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "contact_type" placeholder = "Contact Type" />
+            <input type = "text" class = "form-control" name = "contact_type" placeholder = "eg. Admin, Sales, etc." />
         </div>
         <div class="col-xs-3">
-            <input type = "text" class = "form-control" name = "email" placeholder = "Email" />
+            <input type = "text" class = "form-control" name = "email" placeholder = "contact@example.com" />
         </div>
         <div class="col-xs-2">
-            <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" />
+            <input type="text" class="form-control" name="phone_number" placeholder="1(222)333-4444" />
         </div>
         <div class="col-xs-1">
             <button type="button" class="btn btn-default remove_button">- Remove</button>
