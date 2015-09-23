@@ -3,11 +3,6 @@
 
 jQuery(document).ready(function($) {
 
-	/* NOTE: please remove this function later along with all 'clickable-row' classes */
-    $(".clickable-row").click(function() {
-        window.document.location = $(this).data("href");
-    });
-
     poc_index = 0;
 
     $("#add_vendor_form")

@@ -48,8 +48,16 @@ section {
 	color: red;
 }
 
+#poc_labels {
+	margin-bottom: 0em;
+}
+
+#poc_labels > div {
+	margin-bottom: 0.5em;
+}
+
 .poc-group > div > input {
-	width: 18em;
+	width: 100%;
 }
 
 .poc-group > div:nth-child(4) > input { /* phone number input */
