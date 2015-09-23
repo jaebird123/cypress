@@ -48,11 +48,6 @@ section {
 	color: red;
 }
 
-.poc-group > div > input,
-.poc-group > div > button {
-	/*margin-left: 3em;*/
-}
-
 .poc-group > div > input {
 	width: 18em;
 }
@@ -61,10 +56,6 @@ section {
 	width: 11em;
 }
 
-#submit_or_cancel_buttons > button {
-	margin-top: 1em;
-}
-
-#submit_or_cancel_buttons > button:first-child {
-	margin-right: 1em;
+#submit_and_cancel {
+	margin-top: 2em;
 }
