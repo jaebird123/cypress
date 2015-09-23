@@ -1,7 +1,22 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-jQuery(document).ready(function($) {
+/* This is something that must be done so that turbolinks will ready the document
+
+var ready;
+ready = function() {
+
+  ...your javascript goes here...
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+*/
+
+var ready;
+ready = function() {
 
     poc_index = 0;
 
@@ -32,4 +47,7 @@ jQuery(document).ready(function($) {
 
     });
 
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
