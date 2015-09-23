@@ -60,10 +60,12 @@ section {
 	width: 100%;
 }
 
-.poc-group > div:nth-child(4) > input { /* phone number input */
-	width: 11em;
+.add_button,
+#submit_button {
+	width: 100%;
 }
 
 #submit_and_cancel {
 	margin-top: 2em;
+	margin-bottom: 10em;
 }
