@@ -25,6 +25,7 @@ td img {
 	margin-left: 1em;
 }
 
+
 /* add.html.erb page */
 
 h1 {
@@ -47,6 +48,23 @@ section {
 	color: red;
 }
 
-#POC_labels {
-	display: inline;
+.poc-group > div > input,
+.poc-group > div > button {
+	/*margin-left: 3em;*/
+}
+
+.poc-group > div > input {
+	width: 18em;
+}
+
+.poc-group > div:nth-child(4) > input { /* phone number input */
+	width: 11em;
+}
+
+#submit_or_cancel_buttons > button {
+	margin-top: 1em;
+}
+
+#submit_or_cancel_buttons > button:first-child {
+	margin-right: 1em;
 }
