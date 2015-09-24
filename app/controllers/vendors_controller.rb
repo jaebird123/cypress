@@ -23,15 +23,22 @@ class VendorsController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.new params[:vendor]
+
+    @vendor = Vendor.new(params[:vendor].permit(:name, :poc))
     @vendor.save!
     respond_to do |f|
-      f.json {redirect_to vendor_url(@vendor)}
-      f.html { redirect_to root_path}
+      f.json { redirect_to vendor_url(@vendor) }
+      f.html { redirect_to root_path }
     end
   end
 
   def edit
   end
+
+  private
+
+  # def vendor_params
+  #   params.require(:name).permit(:vendor_id, :url, :address, :state, :zip, :poc)
+  # end
   
 end

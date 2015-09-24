@@ -34,10 +34,10 @@ ready = function() {
 	    						.attr('data-poc-index', poc_index)
 	    						.insertBefore(template);
 
-	    	clone.find('[name = "name"]').attr('name', 'poc[' + poc_index + '].name').end()
-	    		 .find('[name = "contact_type"]').attr('name', 'poc[' + poc_index + '].contact_type').end()
-	    		 .find('[name = "email"]').attr('name', 'poc[' + poc_index + '].email').end()
-	    		 .find('[name = "phone_number"]').attr('name', 'poc[' + poc_index + '].phone_number').end()
+	    	clone.find('[name = "name"]').attr('name', 'vendor[poc][' + poc_index + '].name').end()
+	    		 .find('[name = "contact_type"]').attr('name', 'vendor[poc][' + poc_index + '].contact_type').end()
+	    		 .find('[name = "email"]').attr('name', 'vendor[poc][' + poc_index + '].email').end()
+	    		 .find('[name = "phone_number"]').attr('name', 'vendor[poc][' + poc_index + '].phone_number').end()
 
 	    })
 
