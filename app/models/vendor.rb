@@ -31,4 +31,8 @@ class Vendor
 		return 1
 	end
 
+	def total_products
+		return 8
+	end
+
 end

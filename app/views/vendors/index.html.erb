@@ -4,7 +4,7 @@
     <li class="active">Dashboard</li>
   </ol>
 
-  <a href = "/vendors/add"><button class="btn btn-primary pull-left">+ Add Vendor</button></a>
+  <%= button_to "+ Add Vendor", new_vendor_path, :method => :get, :class => "btn btn-primary pull-left" %>
   <button class="btn btn-primary pull-right">View All Patients</button>
 
   <section>
@@ -21,7 +21,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <% @vendors.each do |vendor| %>
+          <tr>
+            <td>
+              <% if vendor.passing_products == vendor.total_products %>
+                <%= image_tag('checkmark.svg') %>
+              <% else %>
+                <%= image_tag('errormark.svg') %>
+              <% end %>
+            </td>
+            <td><%= link_to vendor.name, vendors_path(vendor) %></td>
+            <td><%= vendor.passing_products     %></td>
+            <td><%= vendor.failing_products     %></td>
+            <td><%= vendor.incomplete_products  %></td>
+            <td><%= vendor.total_products       %></td>
+            <td><%= button_to "Edit Vendor", edit_vendor_path(vendor), :method => :get, :class => "btn btn-xs btn-default pull-right" %></td>
+          </tr>
+        <% end %>
+        <!-- <tr>
           <td><%= image_tag('checkmark.svg') %></td>
           <td><a href = "#">Apples</a></td>
   	      <td>1</td>
@@ -74,7 +91,7 @@
           <td>1</td>
           <td>3</td>
           <td><button class="btn btn-xs btn-default pull-right">Edit Vendor</button></td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </section>

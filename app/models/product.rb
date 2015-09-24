@@ -1,7 +1,7 @@
 class Product
 
 	include Mongoid::Document
-	include Mongoid::Timestamp
+	include Mongoid::Timestamps
 
 	belongs_to :vendor, index: true, touch: true
 	# NOTE: more relationships must be defined

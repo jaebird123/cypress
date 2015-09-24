@@ -5,6 +5,24 @@
     <li class="active">Add Vendor</li>
   </ol>
 
+  <%= puts 'hello' %>
+
+  <% if @vendor %>
+    <%= puts '<h1>yes</h1>' %>
+  <% else %>
+    <%= puts '<h1>no</h1>' %>
+  <% end %>
+
+  <%= form_for @vendor do |f| %>
+
+    <h1>Vendor Information</h1>
+
+    <div class = "form-group">
+      <%= f.label :vendor_name, html: {class: "testing_class"} %>
+    </div>
+
+  <% end %>
+
   <form id = "add_vendor_form" class = "form-horizontal" role = "form">
 
   	<h1>Vendor Information</h1>
