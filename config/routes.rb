@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
   root to: "vendors#index"
+
+  resources :vendors
   
   # get 'vendors', to: 'vendors#index'
-  get 'vendors/index'
-  get '/vendors/add', to: 'vendors#new', as: 'new_vendor'
-  # get 'vendors/add', to: 'vendors#add'
-  get 'vendors/:id', to: 'vendors#show', as: 'vendors'
-  get 'vendors/:id/edit', to: 'vendors#edit', as: 'edit_vendor'
+  # get 'vendors/index'
+  # get '/vendors/add', to: 'vendors#new', as: 'new_vendor'
+  # get 'vendors/:id', to: 'vendors#show', as: 'vendor'
+  # get 'vendors/:id/edit', to: 'vendors#edit', as: 'edit_vendor'
 
 
   get 'products/index'
