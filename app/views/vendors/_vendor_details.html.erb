@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class = "alert alert-warning">
+    <%= flash[:notice] %>
+    <a href = "#" class = "close" data-dismiss = "alert" aria-label = "close">&times;</a>
+  </div>
+<% end %>
+
 <%= form_for @vendor, html: {class: "form-horizontal", id: "add_vendor_form"} do |f| %>
 
   <h1>Vendor Information</h1>
