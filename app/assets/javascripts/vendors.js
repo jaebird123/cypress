@@ -18,13 +18,11 @@ $(document).on('page:load', ready);
 var ready;
 ready = function() {
 
-    poc_index = 0;
+    var poc_index = parseInt($('#poc_counter').text());
 
     $("#add_vendor_form")
 
 	    .on('click', '.add_button', function() {
-
-        console.log('click');
 
 	    	var template = $('#poc_template');
 
@@ -50,7 +48,9 @@ ready = function() {
     });
 
     /* Add a single poc field set for a new vendor */
-    $('.add_button').click();
+    if (poc_index == 0) {
+      $('.add_button').click();
+    }
 
 };
 

@@ -1,9 +1,9 @@
 class VendorsController < ApplicationController
-  
-  # before_action :get_vendors, only: [:index, :add]
+
+  before_filter :find_vendor, :only => [:show, :update]
 
   def index
-    @vendors = Vendor.all
+    @vendors = Vendor.all.order(updated_at: :desc)
     respond_to do |f|
       f.html
       f.json { render :json => @vendors }
@@ -11,7 +11,6 @@ class VendorsController < ApplicationController
   end
 
   def show
-    @vendor = Vendor.find(params[:id])
     respond_to do |f|
       f.html
       f.json { render json: @vendor}
@@ -25,8 +24,8 @@ class VendorsController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.new(params[:vendor].permit(:name, :vendor_id, :url, :address, :state, :zip, :pocs_attributes => [:name, :email, :phone, :contact_type]))
-
+    remove_empty_pocs
+    @vendor = Vendor.new(get_vendor_permissions)
     @vendor.save!
     respond_to do |f|
       f.json { redirect_to vendor_url(@vendor) }
@@ -35,6 +34,33 @@ class VendorsController < ApplicationController
   end
 
   def edit
+    @vendor = Vendor.find(params[:id])
+  end
+
+  def update
+    @vendor.unset(:pocs)
+    remove_empty_pocs
+    @vendor.update_attributes(get_vendor_permissions)
+    unless @vendor.save
+      # rendor template? check why this would be the case
+      render :template => 'vendor/edit'
+    end
+    redirect_to '/'
+  end
+
+  private
+
+  def find_vendor
+    @vendor = Vendor.find(params[:id])
+  end
+
+  def get_vendor_permissions
+    params[:vendor].permit(:name, :vendor_id, :name, :vendor_id, :url, :address, :state, :zip, :pocs_attributes => [:name, :email, :phone, :contact_type])
+  end
+
+  def remove_empty_pocs
+    temp = params[:vendor][:pocs_attributes]
+    params[:vendor][:pocs_attributes].delete_if { |i| !(temp[i].has_key?("name")) || (temp[i]["name"] == "" && temp[i]["phone"] == "" && temp[i]["email"] == "" && temp[i]["contact_type"] == "") }
   end
   
 end
