@@ -16,6 +16,7 @@ class Vendor
 	field :zip, type: String
 
 	validates_presence_of :name
+	validates_uniqueness_of :name
 
 	# Methods should be used only for testing
 

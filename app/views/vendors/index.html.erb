@@ -4,6 +4,13 @@
     <li class="active">Dashboard</li>
   </ol>
 
+  <% if flash[:notice] && flash[:notice_type] %>
+    <div class = "<%= 'alert alert-' + flash[:notice_type] %>" >
+      <%= flash[:notice] %>
+      <a href = "#" class = "close" data-dismiss = "alert" aria-label = "close">&times;</a>
+    </div>
+  <% end %>
+
   <%= button_to "+ Add Vendor", new_vendor_path, :method => :get, :class => "btn btn-primary pull-left" %>
   <button class="btn btn-primary pull-right">View All Patients</button>
 
@@ -11,12 +18,12 @@
   	<table class="table table-sm">
       <thead>
         <tr>
-          <th>Status</th>
-          <th>Vendor</th>
-          <th>Passing Products</th>
-          <th>Failing Products</th>
-          <th>Incomplete Products</th>
-          <th>Total Products</th>
+          <th class = "col-sm-1">Status</th>
+          <th class = "col-sm-3">Vendor</th>
+          <th class = "col-sm-2">Passing Products</th>
+          <th class = "col-sm-2">Failing Products</th>
+          <th class = "col-sm-2">Incomplete Products</th>
+          <th class = "col-sm-2">Total Products</th>
           <td></td>
         </tr>
       </thead>
