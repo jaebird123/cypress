@@ -20,11 +20,13 @@ class VendorsController < ApplicationController
 
   def new
     @vendor = Vendor.new
+    # @vendor.pocs.build(name: "Bob")
+    # @vendor.pocs.build(name: "Tim")
   end
 
   def create
+    @vendor = Vendor.new(params[:vendor].permit(:name, :vendor_id, :url, :address, :state, :zip, :pocs_attributes => [:name, :email, :phone, :contact_type]))
 
-    @vendor = Vendor.new(params[:vendor].permit(:name, :poc))
     @vendor.save!
     respond_to do |f|
       f.json { redirect_to vendor_url(@vendor) }
@@ -34,11 +36,5 @@ class VendorsController < ApplicationController
 
   def edit
   end
-
-  private
-
-  # def vendor_params
-  #   params.require(:name).permit(:vendor_id, :url, :address, :state, :zip, :poc)
-  # end
   
 end

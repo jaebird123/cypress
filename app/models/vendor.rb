@@ -5,7 +5,8 @@ class Vendor
 	include Mongoid::Timestamps
 
 	has_many :products, dependent: :destroy
-	embeds_many :points_of_contact
+	embeds_many :pocs, class_name: "PointOfContact"
+	accepts_nested_attributes_for :pocs
 
 	field :name, type: String
 	field :vendor_id, type: String
@@ -13,8 +14,6 @@ class Vendor
 	field :address, type: String
 	field :state, type: String
 	field :zip, type: String
-	# field :poc, type: String
-	# field :tel, type: String
 
 	validates_presence_of :name
 
@@ -36,13 +35,4 @@ class Vendor
 		return 8
 	end
 
-end
-
-class PointOfContact
-	include Mongoid::Document
-
-	embedded_in :vendor
-
-	field :name
-	field :email
 end

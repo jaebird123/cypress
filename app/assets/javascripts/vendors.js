@@ -24,7 +24,7 @@ ready = function() {
 
 	    .on('click', '.add_button', function() {
 
-	    	poc_index++;
+        console.log('click');
 
 	    	var template = $('#poc_template');
 
@@ -34,10 +34,12 @@ ready = function() {
 	    						.attr('data-poc-index', poc_index)
 	    						.insertBefore(template);
 
-	    	clone.find('[name = "name"]').attr('name', 'vendor[poc][' + poc_index + '].name').end()
-	    		 .find('[name = "contact_type"]').attr('name', 'vendor[poc][' + poc_index + '].contact_type').end()
-	    		 .find('[name = "email"]').attr('name', 'vendor[poc][' + poc_index + '].email').end()
-	    		 .find('[name = "phone_number"]').attr('name', 'vendor[poc][' + poc_index + '].phone_number').end()
+	    	clone.find('[name = "name"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][name]').end()
+	    		 .find('[name = "contact_type"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][contact_type]').end()
+	    		 .find('[name = "email"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][email]').end()
+	    		 .find('[name = "phone"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][phone]').end()
+
+        poc_index++;
 
 	    })
 
@@ -46,6 +48,9 @@ ready = function() {
 	    	$(this).parent().parent('.form-group').remove();
 
     });
+
+    /* Add a single poc field set for a new vendor */
+    $('.add_button').click();
 
 };
 
