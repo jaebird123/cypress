@@ -1,9 +1,4 @@
-<% if flash[:notice] %>
-  <div class = "alert alert-warning">
-    <%= flash[:notice] %>
-    <a href = "#" class = "close" data-dismiss = "alert" aria-label = "close">&times;</a>
-  </div>
-<% end %>
+<%= render :partial => 'vendor_alert' %>
 
 <%= form_for @vendor, html: {class: "form-horizontal", id: "add_vendor_form"} do |f| %>
 
@@ -81,8 +76,10 @@
       <div class = "col-xs-2">
         <%= poc_fields.text_field :contact_type, :class => "form-control", :placeholder => 'Admin, Sales' %>
       </div>
-      <div class="col-xs-1">
-        <button type = "button" class = "btn btn-default remove_button">- Remove</button>
+      <div class="col-xs-2">
+        <%= poc_fields.label :_destroy, "- Remove", :class => "btn btn-default remove_label" %>
+        <%= poc_fields.check_box :_destroy, :class => "remove_checkbox" %>
+        <!-- <button type = "button" class = "btn btn-default remove_button">- Remove</button> -->
       </div>
     </div>
 
@@ -90,8 +87,10 @@
 
   <% end %>
 
+  <!-- Used by javascript to know how many POC's exist already for this vendor -->
   <div class = "hide" id = "poc_counter"><%= $poc_counter %></div>
 
+  <!-- Template for javascript to dynamically add more PointOfContact (poc) fields -->
   <div class = "form-group poc-group hide" id = "poc_template">
     <div class = "col-xs-2">
       <input type = "text" class = "form-control" name = "name" placeholder = "John Doe" />
@@ -106,42 +105,12 @@
       <input type = "text" class = "form-control" name = "contact_type" placeholder = "Admin, Sales" />
     </div>
     <div class="col-xs-1">
-        <button type = "button" class = "btn btn-default remove_button">- Remove</button>
+        <label class = "btn btn-default remove_label" id = "template_remove_label" >- Remove</label>
+        <input id = "template_remove_hidden_input" type = "hidden" value = "0" />
+        <input class = "remove_checkbox" id = "template_remove_checkbox" type = "checkbox" value="1" />
+        <!-- <button type = "button" class = "btn btn-default remove_button">- Remove</button> -->
     </div>
   </div>
-
-  <!-- <div class="form-group poc-group">
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "vendor.poc[0].name" placeholder = "John Doe" />
-      </div>
-      <div class="col-xs-4">
-          <input type = "text" class = "form-control" name = "vendor.poc[0].email" placeholder = "contact@example.com" />
-      </div>
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "vendor.poc[0].phone" placeholder = "1(222)333-4444" />
-      </div>
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "vendor.poc[0].contact_type" placeholder = "Admin, Sales" />
-      </div>
-  </div>
-
-  <div class="form-group poc-group hide" id = "poc_template2">
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "name" placeholder = "John Doe" />
-      </div>
-      <div class="col-xs-4">
-          <input type = "text" class = "form-control" name = "email" placeholder = "contact@example.com" />
-      </div>
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "phone" placeholder = "1(222)333-4444" />
-      </div>
-      <div class="col-xs-2">
-          <input type = "text" class = "form-control" name = "contact_type" placeholder = "Admin, Sales, etc." />
-      </div>
-      <div class="col-xs-1">
-          <button type = "button" class = "btn btn-default remove_button">- Remove</button>
-      </div>
-  </div> -->
 
   <div class = "form-group poc-group">
     <div class="col-xs-2">
@@ -152,7 +121,8 @@
   <div class = "form-group" id = "submit_and_cancel">
     <div class = "col-sm-2"></div>
     <div class = "col-sm-1">
-      <%= button_to "Cancel", "/", :method => :get, :class => "btn btn-default" %>
+      <!-- cannot use button_to (rails makes type="submit" which cannot be changed in a form) -->
+      <%= submit_tag "Cancel", :class => "btn btn-default", :type => "button", :onclick => "location.href = '/'" %>
     </div>
     <div class = "col-sm-2">
       <%= button_tag $sumbit_text, :class => "btn btn-primary", :id => "submit_button" %>
