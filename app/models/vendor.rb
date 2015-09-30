@@ -6,7 +6,7 @@ class Vendor
 
 	has_many :products, dependent: :destroy
 	embeds_many :pocs, class_name: "PointOfContact"
-	accepts_nested_attributes_for :pocs
+	accepts_nested_attributes_for :pocs, allow_destroy: true
 
 	field :name, type: String
 	field :vendor_id, type: String
