@@ -7,6 +7,8 @@
     <li class="active">Edit Vendor</li>
   </ol>
 
+  <%= button_to "Remove Vendor", @vendor, :method => "delete", :class => "btn btn-danger pull-right" %>
+
   <%= render :partial => 'vendor_details' %>
 
 </div>
