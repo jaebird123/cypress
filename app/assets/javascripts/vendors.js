@@ -19,6 +19,7 @@ var ready;
 ready = function() {
 
     var poc_index = parseInt($('#poc_counter').text());
+    var vendor_name = $("#vendor_name_popup").text();
 
     $("#add_vendor_form")
 
@@ -69,6 +70,14 @@ ready = function() {
     if (poc_index == 0) {
       $('.add_button').click();
     }
+
+    $("#text_field_popup").keyup(function() {
+      if (vendor_name == $(this).val()) {
+        $("#remove_vendor_popup").prop("disabled", false);
+      } else {
+        $("#remove_vendor_popup").prop("disabled", true);
+      }
+    });
 
 };
 

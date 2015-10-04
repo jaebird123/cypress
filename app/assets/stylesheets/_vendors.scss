@@ -1,5 +1,9 @@
 /* index.html.erb page */
 
+label {
+	font-weight: normal;
+}
+
 tr:hover {
 	background-color: #EEEBF5;
 }
@@ -36,6 +40,14 @@ h1 {
 section {
 	margin-top: 5em;
 }
+
+/* Remove Vendor popup */
+
+#remove_vendor_popup {
+	margin-left: 1em;
+}
+
+/* Vendor form */
 
 .form-control {
 	display: inline; /* needed for '* required' side note */
