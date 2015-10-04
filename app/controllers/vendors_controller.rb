@@ -2,11 +2,6 @@ class VendorsController < ApplicationController
 
   before_filter :find_vendor, :only => [:show, :update, :destroy]
 
-  rescue_from Mongoid::Errors::Validations do
-    set_flash_name_taken(@vendor.name, "warning")
-    render :edit
-  end
-
   def index
     @vendors = Vendor.all.order(updated_at: :desc)
     respond_to do |f|
@@ -35,6 +30,9 @@ class VendorsController < ApplicationController
       f.json { redirect_to vendor_url(@vendor) } # TODO: this deals with API
       f.html { redirect_to root_path }
     end
+  rescue Mongoid::Errors::Validations
+    set_flash_name_taken(@vendor.name, "warning")
+    render :new
   end
 
   def edit
@@ -47,6 +45,9 @@ class VendorsController < ApplicationController
     @vendor.save!
     set_flash_vendor_comment(@vendor.name, "info", "edited")
     redirect_to root_path
+  rescue Mongoid::Errors::Validations
+    set_flash_name_taken(@vendor.name, "warning")
+    render :edit
   end
 
   def destroy
