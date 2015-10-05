@@ -17,5 +17,12 @@ FactoryGirl.define do
       name "poc2"
     end
 
+    factory :poc_empty do
+      name ""
+      email ""
+      phone ""
+      contact_type ""
+    end
+
   end
 end
