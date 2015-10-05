@@ -22,7 +22,6 @@ class VendorsController < ApplicationController
   end
 
   def create
-    remove_empty_pocs
     @vendor = Vendor.new(vendor_params)
     @vendor.save!
     set_flash_vendor_comment(@vendor.name, "success", "created")
@@ -40,7 +39,6 @@ class VendorsController < ApplicationController
   end
 
   def update
-    remove_empty_pocs
     @vendor.update_attributes(vendor_params)
     @vendor.save!
     set_flash_vendor_comment(@vendor.name, "info", "edited")
@@ -67,12 +65,6 @@ class VendorsController < ApplicationController
 
     def vendor_params
       params[:vendor].permit(:name, :vendor_id, :name, :vendor_id, :url, :address, :state, :zip, :pocs_attributes => [:id, :name, :email, :phone, :contact_type, :_destroy])
-    end
-
-    def remove_empty_pocs
-      temp = params[:vendor][:pocs_attributes]
-      params[:vendor][:pocs_attributes].delete_if { |i| !(temp[i].has_key?(:name)) || (temp[i][:name] == "" && temp[i][:phone] == "" && temp[i][:email] == "" && temp[i][:contact_type] == "") }
-      # params[:vendor][:pocs_attributes].delete_if { |i| false}
     end
 
     def set_flash_name_taken(vendor_name, notice_type)

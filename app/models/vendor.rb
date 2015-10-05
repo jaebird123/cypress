@@ -6,7 +6,7 @@ class Vendor
 
 	has_many :products, dependent: :destroy
 	embeds_many :pocs, class_name: "PointOfContact"
-	accepts_nested_attributes_for :pocs, allow_destroy: true
+	accepts_nested_attributes_for :pocs, allow_destroy: true, reject_if: -> (poc) { (!poc.has_key?(:name)) || (poc[:name] == "" && poc[:phone] == "" && poc[:email] == "" && poc[:contact_type] == "") }
 
 	field :name, type: String
 	field :vendor_id, type: String

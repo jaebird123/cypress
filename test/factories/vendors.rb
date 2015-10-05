@@ -6,6 +6,10 @@ FactoryGirl.define do
       pocs { [FactoryGirl.build(:poc), FactoryGirl.build(:poc)] }
     end
 
+    factory :vendor_empty_poc do
+      pocs { [FactoryGirl.build(:poc_empty), FactoryGirl.build(:poc_empty)] }
+    end
+
     factory :vendor_no_name do
       name ""
     end
