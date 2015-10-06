@@ -35,6 +35,7 @@ class VendorTest < MiniTest::Unit::TestCase
     FactoryGirl.create(:vendor_repeat_name)
     assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_repeat_name) }
   end
+
   
   # ====================== #
   #   Model Method Tests   #
