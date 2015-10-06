@@ -36,17 +36,6 @@ class VendorTest < MiniTest::Unit::TestCase
     assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_repeat_name) }
   end
 
-  def test_vendor_with_empty_poc_can_be_saved
-    assert FactoryGirl.create(:vendor_empty_poc)
-  end
-
-  def test_vendor_with_empty_poc_saves_no_pocs
-    vendor = FactoryGirl.build(:vendor_empty_poc)
-    vendor_was_saved = vendor.save
-    vendor_in_db = Vendor.find(vendor.id)
-    byebug
-  end
-
 
   # ====================== #
   #   Model Method Tests   #

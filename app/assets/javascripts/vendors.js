@@ -47,23 +47,7 @@ ready = function() {
 	    })
 
       .on('click', '.remove_label', function() {
-
-        /* OPTION 1 */
         $(this).parent().parent('.form-group').addClass('hide');
-
-        /* OPTION 2 */
-        // var inputs = $(this).parent().siblings().children();
-
-        // if ($(this).hasClass('undo')) {
-        //   $(this).removeClass('undo');
-        //   $(this).text('- Remove');
-        //   inputs.removeClass('hide');
-        // } else {
-        //   $(this).addClass('undo');
-        //   $(this).text('Undo');
-        //   inputs.addClass('hide');
-        // }
-
     });
 
     /* Add a single poc field set for a new vendor */
@@ -71,6 +55,7 @@ ready = function() {
       $('.add_button').click();
     }
 
+    /* Check if name of Vendor is in text box */
     $("#text_field_popup").keyup(function() {
       if (vendor_name == $(this).val()) {
         $("#remove_vendor_popup").prop("disabled", false);
