@@ -26,9 +26,9 @@ class VendorsControllerTest < ActionController::TestCase
   test "should create vendor" do
     # $temp = vendors(:fixed_vendor_with_pocs)
     # byebug
-    v = FactoryGirl.build(:vendor_with_pocs)
-    
-    post :create, vendor: v
+    vendor = FactoryGirl.build(:vendor_with_pocs)
+    byebug
+    post :create, vendor: vendor
     assert_response :success
   end
 
