@@ -1,7 +1,7 @@
-<div class="vendors col-sm-12">
+<div class="vendors index_vendor_page col-sm-12">
 
   <ol class="breadcrumb row">
-    <li class="active">Dashboard</li>
+    <li class="active">All Vendors</li>
   </ol>
 
   <%= render :partial => 'vendor_alert' %>
@@ -15,10 +15,10 @@
         <tr>
           <th class = "col-sm-1">Status</th>
           <th class = "col-sm-3">Vendor</th>
-          <th class = "col-sm-2">Passing Products</th>
-          <th class = "col-sm-2">Failing Products</th>
-          <th class = "col-sm-2">Incomplete Products</th>
-          <th class = "col-sm-2">Total Products</th>
+          <th class = "col-sm-2 number_col">Passing Products</th>
+          <th class = "col-sm-2 number_col">Failing Products</th>
+          <th class = "col-sm-2 number_col">Incomplete Products</th>
+          <th class = "col-sm-2 number_col">Total Products</th>
           <td></td>
         </tr>
       </thead>
@@ -27,16 +27,16 @@
           <tr>
             <td>
               <% if vendor.passing_products == vendor.total_products %>
-                <%= image_tag('checkmark.svg') %>
+                <%= image_tag('checkmark.svg', :class => "mark_img") %>
               <% else %>
-                <%= image_tag('errormark.svg') %>
+                <%= image_tag('errormark.svg', :class => "mark_img") %>
               <% end %>
             </td>
-            <td><%= link_to vendor.name, vendors_path(vendor) %></td>
-            <td><%= vendor.passing_products     %></td>
-            <td><%= vendor.failing_products     %></td>
-            <td><%= vendor.incomplete_products  %></td>
-            <td><%= vendor.total_products       %></td>
+            <td><%= link_to vendor.name, vendors_path(vendor)        %></td>
+            <td class = "number_col"><%= vendor.passing_products     %></td>
+            <td class = "number_col"><%= vendor.failing_products     %></td>
+            <td class = "number_col"><%= vendor.incomplete_products  %></td>
+            <td class = "number_col"><%= vendor.total_products       %></td>
             <td><%= button_to "Edit Vendor", edit_vendor_path(vendor), :method => :get, :class => "btn btn-xs btn-default pull-right" %></td>
           </tr>
         <% end %>

@@ -1,6 +1,6 @@
 <% $sumbit_text = "Submit Changes" %>
 
-<div class="vendors col-sm-12">
+<div class="vendors edit_vendor_page col-sm-12">
 
   <ol class="breadcrumb row">
     <li><%= link_to "All Vendors", "/" %></li>
@@ -22,11 +22,11 @@
         </div>
         <div class = "modal-body">
           <p>Removing a vendor will also delete all associated products, tests, and points of contact.</p>
-          <p>Enter the vendor name <strong id = "vendor_name_popup"><%= @vendor.name %></strong> to delete vendor.</p>
-          <p><input id = "text_field_popup" type = "text-field" class = "form-control" placeholder = "Vendor Name"/></p>
+          <p>Enter the vendor name <strong id = "popup_vendor_name"><%= @vendor.name %></strong> to delete vendor.</p>
+          <p><input id = "popup_text_field" type = "text-field" class = "form-control" placeholder = "Vendor Name"/></p>
         </div>
         <div class = "modal-footer">
-          <%= button_to "Remove Vendor", @vendor, :method => "delete", :class => "btn btn-danger pull-right", :disabled => true, :id => "remove_vendor_popup" %>
+          <%= button_to "Remove Vendor", @vendor, :method => "delete", :class => "btn btn-danger pull-right", :disabled => true, :id => "popup_remove_vendor_button" %>
           <button type = "button" class = "btn btn-default pull-right" data-dismiss = "modal">Close</button>
         </div>
       </div>

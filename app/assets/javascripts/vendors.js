@@ -18,23 +18,25 @@ $(document).on('page:load', ready);
 var ready;
 ready = function() {
 
-    var poc_index = parseInt($('#poc_counter').text());
-    var vendor_name = $("#vendor_name_popup").text();
+  /* get number of poc's and vendor name from HTML */
+  var poc_index = parseInt($('#poc_counter').text());
+  var vendor_name = $("#popup_vendor_name").text();
 
-    $("#add_vendor_form")
+  $("#add_vendor_form")
 
-	    .on('click', '.add_button', function() {
+    /* add a point of contact field set */
+    .on('click', '#add_poc_field_set_button', function() {
 
-	    	var template = $('#poc_template');
+      var template = $('#poc_template');
 
-	    	var clone = template.clone()
-	    						.removeClass('hide')
-	    						.removeAttr('id')
-	    						.attr('data-poc-index', poc_index)
-	    						.insertBefore(template);
+      var clone = template.clone()
+                  .removeClass('hide')
+                  .removeAttr('id')
+                  .attr('data-poc-index', poc_index)
+                  .insertBefore(template);
 
-        /* Replace all fields in newly generated POC field set with appropriate names */
-	    	clone.find('[name = "name"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][name]').end()
+      /* replace all fields in newly generated POC field set with appropriate names and id fields */
+      clone.find('[name = "name"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][name]').end()
 	    		 .find('[name = "contact_type"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][contact_type]').end()
 	    		 .find('[name = "email"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][email]').end()
 	    		 .find('[name = "phone"]').attr('name', 'vendor[pocs_attributes][' + poc_index + '][phone]').end()
@@ -44,23 +46,26 @@ ready = function() {
 
         poc_index++;
 
-	    })
+    })
 
-      .on('click', '.remove_label', function() {
-        $(this).parent().parent('.form-group').addClass('hide');
+    /* remove poc button hides poc field set. hidden poc's will not be saved to the database */
+    .on('click', '.remove_label', function() {
+      
+      $(this).parent().parent('.form-group').addClass('hide');
+
     });
 
-    /* Add a single poc field set for a new vendor */
+    /* add a single poc field set for a new vendor */
     if (poc_index == 0) {
-      $('.add_button').click();
+      $('#add_poc_field_set_button').click();
     }
 
-    /* Check if name of Vendor is in text box */
-    $("#text_field_popup").keyup(function() {
+    /* check if name of Vendor is in text box */
+    $("#popup_text_field").keyup(function() {
       if (vendor_name == $(this).val()) {
-        $("#remove_vendor_popup").prop("disabled", false);
+        $("#popup_remove_vendor_button").prop("disabled", false);
       } else {
-        $("#remove_vendor_popup").prop("disabled", true);
+        $("#popup_remove_vendor_button").prop("disabled", true);
       }
     });
 

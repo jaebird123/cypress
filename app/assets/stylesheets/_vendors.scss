@@ -1,85 +1,71 @@
-/* index.html.erb page */
+
+/* * * * * * * * * * */
+/*   G E N E R A L   */
+/* * * * * * * * * * */
+
+h1 {
+	font-size: 2em;
+}
 
 label {
 	font-weight: normal;
 }
 
-tr:hover {
-	background-color: #EEEBF5;
-}
 
-th, td {
-  width: 2em;
-  text-align: center;
-}
+/* * * * * * * * */
+/*   I N D E X * */
+/* * * * * * * * */
 
-th:first-child,
-th:nth-child(2),
-td:nth-child(2) {
-	text-align: left;
-}
+.index_vendor_page {
 
-/* Check and X mark */
-th img, td img {
-	height: 1.5em;
-    padding-bottom: 0.5em;
-}
+	section { margin-top: 5em }
 
-td img {
-	margin-left: 1em;
+	tr:hover { background-color: $breadcrumb-bg }
+
+	.number_col { text-align: center }
+
+	.mark_img {
+		height: 1.5em;
+		padding-left: 1em;
+		padding-bottom: 0.5em;
+	}
+
 }
 
 
-/* add.html.erb page */
+/* * * * * * * * * * * * * * * */
+/*   A D D   a n d   E D I T   */
+/* * * * * * * * * * * * * * * */
 
-h1 {
-	margin-top: 1.5em;
-	margin-bottom: 1em;
-}
+.new_vendor_page, .edit_vendor_page {
 
-section {
-	margin-top: 5em;
-}
+	h1 {
+		margin-top: 1.5em;
+		margin-bottom: 1em;
+	}
 
-/* Remove Vendor popup */
+	/* remove vendor popup */
 
-#remove_vendor_popup {
-	margin-left: 1em;
-}
+	#popup_remove_vendor_button { margin-left: 1em }
 
-/* Vendor form */
+	/* vendor form */
 
-.form-control {
-	display: inline; /* needed for '* required' side note */
-	width: 100%;
-}
+	/* needed for '* required' side note */
+	.form-control { display: inline}
 
-.required-field-label {
-	color: red;
-}
+	.required-field-label { color: red }
 
-#poc_labels {
-	margin-bottom: 0em;
-}
+	/* poc form */
 
-#poc_labels > div {
-	margin-bottom: 0.5em;
-}
+	#poc_labels { margin-bottom: 0.5em }
 
-.poc-group > div > input {
-	width: 100%;
-}
+	#add_poc_field_set_button, #submit_button { width: 100% }
 
-.add_button,
-#submit_button {
-	width: 100%;
-}
+	.remove_checkbox { display: none }
 
-.remove_checkbox {
-	display: none;
-}
+	#submit_and_cancel {
+		margin-top: 2em;
+		margin-bottom: 10em;
+	}
 
-#submit_and_cancel {
-	margin-top: 2em;
-	margin-bottom: 10em;
 }
