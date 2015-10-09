@@ -1,6 +1,10 @@
 require 'test_helper'
  
-class VendorTest < MiniTest::Unit::TestCase
+class VendorTest < MiniTest::Test
+
+  def after_teardown
+    Vendor.all.destroy
+  end
   
   def test_true_is_true
     assert true
@@ -31,11 +35,24 @@ class VendorTest < MiniTest::Unit::TestCase
     assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_no_name) }
   end
 
-  def test_vendors_with_same_name_cannot_be_saved
-    FactoryGirl.create(:vendor_repeat_name)
-    assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_repeat_name) }
+  def test_vendor_with_mil_name_cannot_be_saved
+    assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_nil_name) }
   end
 
+  def test_vendors_with_same_name_cannot_be_saved
+    FactoryGirl.create(:vendor_static_name)
+    assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_static_name) }
+  end
+
+  # with pocs
+
+  def test_vendors_with_pocs_with_no_name_cannot_be_saved
+    assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_with_pocs_with_no_name) }
+  end
+
+  def test_vendors_with_pocs_with_same_name_cannot_be_saved
+    assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_with_pocs_same_name) }
+  end
   
   # ====================== #
   #   Model Method Tests   #

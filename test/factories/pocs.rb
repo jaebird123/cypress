@@ -1,9 +1,10 @@
 FactoryGirl.define do
+
   factory :poc, class: PointOfContact do
+
     # association :vendor
+
     sequence(:name) { |i| "Contact #{i}" }
-    # name "contact name"
-    # email "email example"
     sequence(:email) { |i| "contact#{i}@example.com" }
     phone "1(222)333-4444"
     contact_type "Admin"
@@ -13,15 +14,8 @@ FactoryGirl.define do
       name "poc1"
     end
 
-    factory :poc2 do
-      name "poc2"
-    end
-
-    factory :poc_empty do
-      name ""
-      email ""
-      phone ""
-      contact_type ""
+    factory :poc_no_name do
+      name nil
     end
 
   end
