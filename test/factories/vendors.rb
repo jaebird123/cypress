@@ -29,5 +29,13 @@ FactoryGirl.define do
       pocs { [FactoryGirl.build(:poc1), FactoryGirl.build(:poc1)] }
     end
 
+    factory :vendor_with_many_pocs do
+      temp = []
+      (0..1000).each do |i|
+        temp.push(FactoryGirl.build(:poc))
+      end
+      pocs { temp }
+    end
+
   end
 end

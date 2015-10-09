@@ -53,6 +53,20 @@ class VendorTest < MiniTest::Test
   def test_vendors_with_pocs_with_same_name_cannot_be_saved
     assert_raises(Mongoid::Errors::Validations) { FactoryGirl.create(:vendor_with_pocs_same_name) }
   end
+
+  # tests many vendors and many pocs. comment out these tests if you want testing to run faster
+
+  def test_vendor_with_many_pocs
+    assert FactoryGirl.create(:vendor_with_many_pocs)
+  end
+
+  def test_many_vendors
+      all_valid = true
+      (0..1000).each do
+        all_valid = all_valid && FactoryGirl.create(:vendor)
+      end
+      assert all_valid
+  end
   
   # ====================== #
   #   Model Method Tests   #
