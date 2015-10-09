@@ -30,7 +30,7 @@ class VendorsController < ApplicationController
       f.html { redirect_to root_path }
     end
   rescue Mongoid::Errors::Validations
-    set_flash_name_taken(@vendor.name, "warning")
+    set_flash_errors(@vendor)
     render :new
   end
 
@@ -44,7 +44,7 @@ class VendorsController < ApplicationController
     set_flash_vendor_comment(@vendor.name, "info", "edited")
     redirect_to root_path
   rescue Mongoid::Errors::Validations
-    set_flash_name_taken(@vendor.name, "warning")
+    set_flash_errors(@vendor)
     render :edit
   end
 
@@ -67,9 +67,10 @@ class VendorsController < ApplicationController
       params[:vendor].permit(:name, :vendor_id, :name, :vendor_id, :url, :address, :state, :zip, :pocs_attributes => [:id, :name, :email, :phone, :contact_type, :_destroy])
     end
 
-    def set_flash_name_taken(vendor_name, notice_type)
-      flash[:notice] = "Vendor name '#{vendor_name}' is already taken. Please try another name."
-      flash[:notice_type] = notice_type
+    def set_flash_errors(vendor)
+      flash[:notice_type] = "warning"
+      flash[:notice] = "POCs " + vendor.errors.get(:pocs).first unless vendor.errors.messages[:pocs].nil?
+      flash[:notice] = vendor.errors.get(:name).first unless vendor.errors.messages[:name].nil?
     end
 
     # action_type (string) describes what just happended to the vendor. should be past tense

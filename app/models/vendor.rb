@@ -16,7 +16,7 @@ class Vendor
 	field :zip, type: String
 
 	validates_presence_of :name
-	validates_uniqueness_of :name
+	validates_uniqueness_of :name, message: "Vendor name was already taken. Please choose another."
 
 	# Methods should be used only for testing
 
