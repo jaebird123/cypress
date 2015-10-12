@@ -1,6 +1,7 @@
 class VendorsController < ApplicationController
 
   before_filter :find_vendor, :only => [:show, :update, :destroy]
+  before_action :add_index_breadcrumb, :only => [:index, :new, :edit]
 
   def index
     @vendors = Vendor.all.order(updated_at: :desc)
@@ -18,6 +19,7 @@ class VendorsController < ApplicationController
   end
 
   def new
+    add_breadcrumb "Add Vendor", new_vendor_path
     @vendor = Vendor.new
   end
 
@@ -35,6 +37,7 @@ class VendorsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb "Edit Vendor", edit_vendor_path
     @vendor = Vendor.find(params[:id])
   end
 
@@ -61,6 +64,10 @@ class VendorsController < ApplicationController
 
     def find_vendor
       @vendor = Vendor.find(params[:id])
+    end
+
+    def add_index_breadcrumb
+      add_breadcrumb "All Vendors", root_path
     end
 
     def vendor_params
